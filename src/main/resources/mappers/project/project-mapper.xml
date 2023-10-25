@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ProjectMapper">
+	<resultMap type="Project" id="projectResultMap">
+		<id		property="projectNo" column="PROJECT_NO"/>
+		<result property="projectName" column="PROJECT_NAME"/>
+		<result property="projectCreator" column="PROJECT_CREATOR"/>
+		<result property="projectMember" column="PROJECT_MEMBER"/>
+	</resultMap>
+	
+	<insert id="addProject">
+		INSERT INTO PROJECT_TBL VALUES(SEQ_PROJECT_NO.NEXTVAL, #{projectName}, #{userId}, #{userId})
+	</insert>
+	
+	<insert id="inviteUser">
+		INSERT INTO PROJECT_TBL VALUES(#{projectNo }, #{projectName}, #{projectCreator }, #{projectMember })
+	</insert>
+	
+	<update id="modifyProject">
+		UPDATE PROJECT_TBL SET PROJECT_NAME = #{projectName } WHERE PROJECT_NO = #{projectNo }
+	</update>
+	
+	<delete id="leaveProject">
+		DELETE FROM PROJECT_TBL WHERE PROJECT_NO = #{projectNo } AND PROJECT_MEMBER = #{projectMember }
+	</delete>
+	
+	<delete id="deleteProject">
+		DELETE FROM PROJECT_TBL WHERE PROJECT_NO = #{projectNo }
+	</delete>
+	
+	<select id="getProjectById" resultMap="projectResultMap">
+		SELECT * FROM PROJECT_TBL WHERE PROJECT_MEMBER = #{userId}
+	</select>
+	
+	<select id="getProjectByNo" resultMap="projectResultMap">
+		SELECT * FROM PROJECT_TBL WHERE PROJECT_NO = #{projectNo} AND PROJECT_MEMBER = #{projectMember }
+	</select>
+	
+</mapper>

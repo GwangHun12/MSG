@@ -1,0 +1,52 @@
+@charset "UTF-8";
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin : auto;
+    margin-top: 100px;
+}
+
+/* 테이블 헤더 행 */
+thead th {
+    background-color: #333;
+    color: white;
+    text-align: left;
+    padding: 10px;
+}
+
+/* 테이블 데이터 행 */
+tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+tbody td {
+    padding: 10px;
+}
+
+/* 버튼 스타일 */
+button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* 버튼 호버 효과 */
+button:hover {
+    background-color: #555;
+}
+.h1 {
+	margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--bs-heading-color);
+	margin-left: auto;
+    margin-right: auto;
+    width : 10%;
+}

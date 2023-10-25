@@ -1,0 +1,12 @@
+@charset "UTF-8";
+body {
+	    display: flex;
+	    justify-content: center; /* 페이지 내용 가로 가운데 정렬 */
+	    align-items: center; /* 페이지 내용 세로 가운데 정렬 */
+	    height: 100vh;
+	}
+
+	.notice-container {
+		width: 150%; /* 전체 폭을 80%로 설정 */
+		max-width: 1000px; /* 최대 폭을 600px로 제한 (원하는 크기로 조절) */
+	}

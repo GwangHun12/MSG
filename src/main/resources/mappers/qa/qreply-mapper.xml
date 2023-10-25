@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="QReplyMapper">
+	<resultMap type="QReply" id="qreplyResultMap">
+		<id 	property="replyNo" 		column="REPLY_NO"/>
+		<result property="replyContent" 	column="REPLY_CONTENT"/>
+ 		<result property="rCreateDate" column="R_CREATE_DATE"/> 
+		<result property="rUpdateDate" 	column="R_UPDATE_DATE"/>
+		<result property="qaNo" 	column="QA_NO"/>
+		<result property="userId" 	column="USER_ID"/>
+		<result property="secret" 	column="SECRET"/>
+		<result property="replyStatus" 	column="REPLY_STATUS"/>
+	</resultMap>
+	<insert id="insertQReply">
+		INSERT INTO REPLY_TBL VALUES(SEQ_REPLY_NO.NEXTVAL, #{replyContent}, DEFAULT, DEFAULT, #{qaNo}, #{userId}, #{secret}, DEFAULT)
+	</insert>
+	
+	<select id="selectQReplyList" resultMap="qreplyResultMap">
+		SELECT * FROM REPLY_TBL WHERE REPLY_STATUS = 'Y' AND QA_NO = #{qaNo} ORDER BY REPLY_NO DESC
+	</select>
+	
+	<update id="updateQReply">
+		UPDATE REPLY_TBL SET REPLY_CONTENT = #{replyContent}  WHERE REPLY_NO = #{replyNo}
+	</update>
+	
+	<update id="deleteQReply">
+		DELETE FROM REPLY_TBL WHERE REPLY_NO = #{replyNo} AND USER_ID = #{userId}
+	</update>
+	
+	<select id="getReplyCountByQaNo" resultType="_int">
+		SELECT COUNT(*) FROM REPLY_TBL WHERE QA_NO = #{qaNo} AND REPLY_STATUS = 'Y'
+	</select>
+</mapper>

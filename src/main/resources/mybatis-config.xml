@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+	<typeAliases>
+		<typeAlias type="com.kh.msg.user.domain.User" alias="User"/>
+		<typeAlias type="com.kh.msg.project.domain.Project" alias="Project"/>
+		<typeAlias type="com.kh.msg.project.domain.SideProject" alias="SideProject"/>
+		<typeAlias type="com.kh.msg.project.domain.SideProjectBoard" alias="SideProjectBoard"/>
+		<typeAlias type="com.kh.msg.calendar.domain.CalVO" alias="Calendar"/>
+		<typeAlias type="com.kh.msg.notice.domain.Notice" alias="Notice"/>
+		<typeAlias type="com.kh.msg.qa.domain.Qa" alias="Qa"/>
+		<typeAlias type="com.kh.msg.qa.domain.QReply" alias="QReply"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="mappers/user/user-mapper.xml"/>
+		<mapper resource="mappers/project/project-mapper.xml"/>
+		<mapper resource="mappers/project/side-project-mapper.xml"/>
+		<mapper resource="mappers/project/side-project-board-mapper.xml"/>
+		<mapper resource="mappers/calendar/calendar-mapper.xml"/>
+		<mapper resource="mappers/notice/notice-mapper.xml"/>
+		<mapper resource="mappers/qa/qa-mapper.xml"/>
+		<mapper resource="mappers/qa/qreply-mapper.xml"/>
+	</mappers>
+</configuration>

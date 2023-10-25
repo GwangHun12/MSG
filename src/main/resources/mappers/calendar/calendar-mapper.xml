@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="CalendarMapper">
+	<resultMap type="Calendar" id="CalendarResultMap">
+		<id property="calno" column="CALENDAR_NO"/>
+	    <result property="title" column="CALENDAR_TITLE"/>
+	    <result property="description" column="CALENDAR_CONTENT"/>
+	    <result property="start" column="START_DATE"/>
+	    <result property="end" column="END_DATE"/>
+	    <result property="userName" column="USER_ID"/>
+		<result property="projectNo" column="PROJECT_NO"/>
+	    <result property="backgroundColor" column="BACKGROUND_COLOR"/>
+	    <result property="textColor" column="TEXT_COLOR"/>
+	    <result property="type" column="TYPE"/>
+	    <result property="allDay" column="ALL_DAY"/>
+	    <result property="allDayjs" column="ALL_DAY_JS"/>
+	    <result property="schk" column="SCHK"/>
+	    <collection property="project" resultMap="projectResultMap" />
+	</resultMap>
+	<resultMap type="Project" id="projectResultMap">
+		<id		property="projectNo" column="PROJECT_NO"/>
+		<result property="projectName" column="PROJECT_NAME"/>
+		<result property="projectCreator" column="PROJECT_CREATOR"/>
+		<result property="projectMember" column="PROJECT_MEMBER"/>
+	</resultMap>
+	<delete id="deleteCal">
+		DELETE FROM CALENDAR_TBL WHERE USET_ID = #{userName}
+	</delete>
+	<select id="Myschedulelistlist"  resultMap="CalendarResultMap">
+		SELECT PROJECT_TBL.PROJECT_NAME,CALENDAR_TBL.CALENDAR_TITLE,CALENDAR_TBL.START_DATE 
+		FROM CALENDAR_TBL INNER JOIN PROJECT_TBL ON CALENDAR_TBL.PROJECT_NO = PROJECT_TBL.PROJECT_NO 
+		WHERE CALENDAR_TBL.USER_ID = #{userName}
+	</select>
+
+
+
+	<select id="projectscheduleList" resultType="Calendar" resultMap="CalendarResultMap">
+		SELECT PROJECT_TBL.PROJECT_NAME,CALENDAR_TBL.CALENDAR_TITLE,CALENDAR_TBL.START_DATE 
+		FROM CALENDAR_TBL INNER JOIN PROJECT_TBL ON CALENDAR_TBL.PROJECT_NO = PROJECT_TBL.PROJECT_NO 
+		WHERE CALENDAR_TBL.PROJECT_NO = #{projectNo}
+	</select>
+	<select id="scheduleList" resultMap="CalendarResultMap">
+	SELECT * FROM CALENDAR_TBL where PROJECT_NO= #{projectNo} 
+     <!--  	SELECT CALENDAR_TBL.*, PROJECT_TBL.PROJECT_NO FROM PROJECT_TBL INNER JOIN CALENDAR_TBL ON PROJECT_TBL.PROJECT_MEMBER = CALENDAR_TBL.USER_ID
+      	where PROJECT_NO =3 and CALENDAR_TBL.SCHK = '1'  -->
+   	</select>
+   	
+   	<select id="myscheduleList" resultMap="CalendarResultMap">
+         SELECT * FROM CALENDAR_TBL  WHERE USER_ID = #{userName}
+	</select>
+   
+   	<select id="calmygroup"  resultMap = "projectResultMap">
+     	SELECT * FROM PROJECT_TBL where PROJECT_MEMBER = #{userName} and PROJECT_NO = #{projectNo}
+   	</select>
+   	
+   	<insert id = "scheduleinsert">
+      	INSERT INTO CALENDAR_TBL values(SEQ_CALENDAR_NO.NEXTVAL,#{title},#{description}, 
+		#{start}, #{end},#{userName},#{projectNo}, #{backgroundColor},
+		#{textColor},#{type},#{allDay},#{allDayjs},#{schk})
+   	</insert>
+   
+   	<update id = "scheduleupdate">
+      	UPDATE CALENDAR_TBL SET  CALENDAR_TITLE = #{title},CALENDAR_CONTENT = #{description}, START_DATE=#{start},  END_DATE=#{end} 
+      , TYPE = #{type}, BACKGROUND_COLOR = #{backgroundColor}, TEXT_COLOR = #{textColor}, ALL_DAY = #{allDay}, SCHK = #{schk} 
+      	WHERE CALENDAR_NO = #{calno}
+   	</update>
+   
+   	<update id = "dragupdate">
+      	UPDATE CALENDAR_TBL SET START_DATE = #{start}, END_DATE = #{end} WHERE CALENDAR_NO = #{calno}
+   	</update>
+   	
+   	<delete id = "scheduledelete">
+         DELETE FROM CALENDAR_TBL WHERE CALENDAR_NO = #{calno}
+    </delete>
+</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="SideProjectMapper">
+	<resultMap type="SideProject" id="sideProjectResultMap">
+		<id		property="sproNo" column="SPRO_NO"/>
+		<result property="sproName" column="SPRO_NAME"/>
+		<result property="sproProjectNo" column="SPRO_PROJECT_NO"/>
+	</resultMap>
+	
+	<insert id="addSideProject">
+		INSERT INTO SUB_PROJECT_TBL VALUES(SEQ_SPRO_NO.NEXTVAL, #{sproName}, #{sproProjectNo})
+	</insert>
+	
+	<update id="modifySideProject">
+		UPDATE SUB_PROJECT_TBL SET SPRO_NAME = #{sproName } WHERE SPRO_PROJECT_NO = #{sproProjectNo }
+	</update>
+	
+	<delete id="deleteSideProject">
+		DELETE FROM SUB_PROJECT_TBL WHERE SPRO_PROJECT_NO = #{sproProjectNo }
+	</delete>
+	
+	<select id="getSideProjectByNo" resultMap="sideProjectResultMap">
+		SELECT * FROM SUB_PROJECT_TBL WHERE SPRO_PROJECT_NO = #{sproProjectNo}
+	</select>
+	
+	<select id="getSideProjectBySproNo" resultMap="sideProjectResultMap">
+		SELECT * FROM SUB_PROJECT_TBL WHERE SPRO_NO = #{sproNo} 
+	</select>
+	
+</mapper>

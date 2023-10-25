@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="QaMapper">
+<resultMap type="Qa" id="qaResultMap">
+		<id property="qaNo" column="QA_NO"/>
+		<result property="qaTitle" column="QA_TITLE"/>
+		<result property="qaContent" column="QA_CONTENT"/>
+		<result property="qCreateDate" column="Q_CREATE_DATE"/>
+		<result property="qUpdateDate" column="Q_UPDATE_DATE"/>
+		<result property="qaSecret" column="QA_SECRET"/>
+		<result property="userId" column="USER_ID"/>
+		<result property="password" column="PASSWORD"/>
+		<result property="viewCount" column="VIEW_COUNT"/>
+		<result property="commentCount" column="COMMENT_COUNT"/>
+	</resultMap>
+	
+	<insert id="insertQa">
+		INSERT INTO QA_TBL VALUES(SEQ_QA_NO.NEXTVAL, #{qaTitle}
+		, #{qaContent}, DEFAULT, DEFAULT, #{qaSecret}, #{userId}, #{password}, DEFAULT, DEFAULT)
+	</insert>
+	
+	<select id="selectQaList" resultMap="qaResultMap">
+		SELECT * FROM QA_TBL ORDER BY QA_NO DESC
+	</select>
+	
+	<select id="selectListCount" resultType="_int">
+		SELECT COUNT (*) FROM QA_TBL
+	</select>
+	
+	
+	<select id="selectQaByNo" resultMap="qaResultMap">
+		SELECT * FROM QA_TBL WHERE QA_NO = #{qaNo }
+	</select>
+	
+	<update id="updateQa">
+		UPDATE QA_TBL SET QA_TITLE = #{qaTitle}, QA_CONTENT = #{qaContent}, QA_SECRET = #{qaSecret}, PASSWORD = #{password} WHERE QA_NO = #{qaNo}
+	</update>
+	
+	<select id="getAllQa" >
+		SELECT * FROM QA_TBL ORDER BY QA_NO DESC
+    </select>
+<!-- resultType="qaResultMap" -->
+	<delete id="deleteQa">
+		DELETE FROM QA_TBL WHERE QA_NO = #{qaNo} AND USER_ID = #{userId}
+	</delete>
+	
+<!-- 	<update id="deleteQa" parameterType="map"> -->
+<!--     	DELETE FROM QA_TBL WHERE QA_NO = #{qaNo} AND USER_ID = #{userId} -->
+<!-- 	</update> -->
+	
+	<update id="updateViewCount" parameterType="int">
+	    UPDATE QA_TBL
+	    SET VIEW_COUNT = VIEW_COUNT + 1
+	    WHERE QA_NO = #{qaNo}
+	</update>
+	
+	<update id="updateReplyNum">
+	   UPDATE QA_TBL SET COMMENT_COUNT = #{commentCount } WHERE QA_NO = #{qaNo }
+	  </update>
+	
+	<select id="selectQaByTitle" resultMap="qaResultMap">
+		SELECT * FROM QA_TBL WHERE QA_TITLE LIKE '%'||#{searchKeyword}||'%'
+	</select>
+	
+<!-- 	<update id="updateQaByNo" parameterType="int"> -->
+<!-- 		UPDATE QA_TBL SET COMMENT_COUNT = #{commentCount}  게시글의 내용 업데이트 필드 -->
+<!--     	WHERE QA_NO = #{qaNo} -->
+<!-- 	</update> -->
+
+	<select id="selectQaByKeyword" resultMap="qaResultMap">
+		SELECT * FROM QA_TBL 
+		<if test="searchCondition == 'qaTitle'">
+		WHERE QA_TITLE LIKE '%'||#{searchKeyword}||'%' 
+		</if>
+	</select>
+
+	<select id="selectListByKeywordCount" resultType="_int">
+		SELECT COUNT (*) FROM QA_TBL
+		<if test="searchCondition == 'qaTitle'">
+		WHERE QA_TITLE LIKE '%'||#{searchKeyword}||'%' 
+		</if>
+	</select>
+</mapper>
