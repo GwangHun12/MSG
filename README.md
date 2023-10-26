@@ -108,27 +108,35 @@ MSG - 파이널프로젝트
 
 ### 2. 캘린더, 일정관리
 
-2-1 내 일정 캘린더 목록
-<img width="1440" alt="일정캘린더" src="">
+2-1 일정 등록
+<img width="1440" alt="일정등록" src="https://github.com/2305PublicDataWebApp/MSG/assets/134674147/885edea1-4ffc-48f0-b4b3-3e5f22661e80">
 
-2-2 메인 프로젝트 상세 일정
-<img width="1440" alt="메인 프로젝트 상세" src="">
+2-1-2 일정 등록
+<img width="1440" alt="일정등록" src="https://github.com/2305PublicDataWebApp/MSG/assets/134674147/a18f014d-51ac-4c39-9cfc-713b0b47572a">
 
-2-3 일정 등록
-<img width="1440" alt="일정등록" src="">
+2-1-3 일정 등록
+<img width="1440" alt="일정등록" src="https://github.com/2305PublicDataWebApp/MSG/assets/134674147/8aa17a2c-6184-46bc-9ce0-663e1529b2d6">
 
-2-4 일정 수정
-<img width="1440" alt="일정수정" src="">
+2-2 일정 수정
+<img width="1440" alt="일정수정" src="https://github.com/2305PublicDataWebApp/MSG/assets/134674147/aee1106a-33c7-4a8b-bef0-1fb3c20bda49">
 
-2-5 일정 삭제
-<img width="1440" alt="일정삭제" src="">
+2-2-1 일정 수정
+<img width="1440" alt="일정등록" src="https://github.com/2305PublicDataWebApp/MSG/assets/134674147/1bc6588b-1b14-4774-a28a-ec2eba0e03fa">
 
-2-6 일정 드래그 앤 드롭
-<img width="1440" alt="일정 드래그 앤 드롭" src="">
+2-3 일정 삭제
+<img width="1440" alt="일정삭제" src="https://github.com/2305PublicDataWebApp/MSG/assets/134674147/052d9b62-5513-48e9-a943-63a054315dd1">
 
-2-7 일정 목록
-<img width="1440" alt="일정 목록" src="">
+2-3-1 일정 삭제
+<img width="1440" alt="일정삭제" src="https://github.com/2305PublicDataWebApp/MSG/assets/134674147/780e2b81-d3f8-4445-8e3e-6296e8b28da8">
 
+2-4 일정 드래그 앤 드롭
+<img width="1440" alt="일정 드래그 앤 드롭" src="https://github.com/2305PublicDataWebApp/MSG/assets/134674147/604beea4-5f8f-4888-b229-1b46dafe3ba1">
+
+2-5 일정 목록
+<img width="1440" alt="일정 목록" src="https://github.com/2305PublicDataWebApp/MSG/assets/134674147/0bc70e84-c750-4e44-9cf8-11a9f433ded5">
+
+2-5-1 일정 목록
+<img width="1440" alt="일정 목록" src="https://github.com/2305PublicDataWebApp/MSG/assets/134674147/5a6369b0-501a-4532-8380-a6ec1be39436">
 
 ### 3. 프로젝트, 사이드 프로젝트
 3-1 프로젝트
