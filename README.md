@@ -146,13 +146,33 @@ MSG - 파이널프로젝트
 
 ### 4. 공지 게시판
 
-공지게시판
-<img width="1800" alt="" src="">
+2-1 공지 작성
+<img width="1440" alt="공지 작성" src="https://github.com/GwangHun12/MSG/assets/134674326/b4f43616-78a0-4c8a-95e2-8840f2aa9131">
+
+2-2 공지 리스트
+<img width="1440" alt="공지 리스트" src="https://github.com/GwangHun12/MSG/assets/134674326/268e39f6-5db0-4430-99f5-4c6cf7c89334">
+
+2-3 공지 수정 및 삭제
+<img width="1440" alt="공지 수정 및 삭제" src="https://github.com/GwangHun12/MSG/assets/134674326/6210a41c-87ce-4051-8256-d86b202369e3">
 
 ### 5. 질문 게시판
-질문 게시판
-<img width="1440" alt="" src="">
+2-1 질문 작성
+<img width="1440" alt="질문 작성" src="https://github.com/GwangHun12/MSG/assets/134674326/b9b8d601-bf98-48f2-bc17-8e23d5c8fa61">
 
+2-1-1 질문 비밀글 작성
+<img width="1440" alt="질문 비밀글 작성" src="https://github.com/GwangHun12/MSG/assets/134674326/ff8ebd3d-00b3-4ddf-9275-96f526e4c29d">
+
+2-2 질문 리스트 비밀글
+<img width="1440" alt="리스트 비밀글" src="https://github.com/GwangHun12/MSG/assets/134674326/b57a8482-464d-44e6-8cb9-54283766b647">
+
+2-2-1 비밀번호 실패
+<img width="1440" alt="비밀번호 실패" src="https://github.com/GwangHun12/MSG/assets/134674326/b7108a58-47a4-48f3-9ddc-6bb372940840">
+
+2-3 비밀댓글 작성
+<img width="1440" alt="비밀댓글 작성" src="https://github.com/GwangHun12/MSG/assets/134674326/4fcff8d5-7994-4213-91f0-3cc9912fedc7">
+
+2-3-1 비밀댓글 표시
+<img width="1440" alt="비밀댓글 표시" src="https://github.com/GwangHun12/MSG/assets/134674326/1e0e84a7-7c97-4a41-a83a-08e7c119aac7">
 
 
 ### 6. 관리자페이지/Notice게시판
